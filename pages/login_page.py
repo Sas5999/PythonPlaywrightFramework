@@ -16,7 +16,14 @@ class LoginPage:
         self.password_input.fill(password)
 
     def click_login(self):
-        self.login_cta.click()        
+        self.login_cta.click()       
+
+    def login_user(self,username:str ,password:str):
+        self.username_input.fill(username)
+        self.password_input.fill(password)
+        self.login_cta.click()
+
+
 
 
 
