@@ -12,7 +12,6 @@ class InventoryPage:
         self.footer = page.locator(".footer_copy")
 
     def add_to_cart_button(self, product_slug: str):
-        # saucedemo uses data-test, not data-testid
         return self.page.locator(f"[data-test='add-to-cart-{product_slug}']")
 
     def remove_button(self, product_slug: str):
