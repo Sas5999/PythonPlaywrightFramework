@@ -1,4 +1,5 @@
 from playwright.sync_api import Page
+from pages.cart_page import CartPage
 
 
 class InventoryPage:
@@ -23,8 +24,12 @@ class InventoryPage:
     def remove_from_cart(self, product_slug: str = "sauce-labs-backpack"):
         self.remove_button(product_slug).click()
 
-    def go_to_cart(self):
-        self.cartIcon.click()
-
     def sort_by(self, value: str):
         self.filter.select_option(value)
+
+    def go_to_cart(self) -> CartPage:
+        self.cartIcon.click()
+        return CartPage(self.page)    
+
+
+

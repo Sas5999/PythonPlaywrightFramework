@@ -1,4 +1,5 @@
 from playwright.sync_api import Page
+from pages.inventory_page import InventoryPage
 class LoginPage:
     def __init__(self,page:Page):
         self.page = page
@@ -15,14 +16,20 @@ class LoginPage:
     def enter_password(self,password:str):
         self.password_input.fill(password)
 
-    def click_login(self):
-        self.login_cta.click()       
+    def click_login(self) -> InventoryPage:
+        self.login_cta.click()    
+        return InventoryPage(self.page)
+
 
     def login_user(self,username:str ,password:str):
         self.username_input.fill(username)
         self.password_input.fill(password)
         self.login_cta.click()
         self.page.wait_for_url("**/inventory.html")
+
+
+
+
 
 
 
