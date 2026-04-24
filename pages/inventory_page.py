@@ -6,7 +6,7 @@ class InventoryPage:
     def __init__(self, page: Page):
         self.page = page
         self.heading = page.locator(".app_logo")
-        self.inventoryList = page.locator(".inventory_list")
+        self.inventoryList = page.locator('[data-test="inventory-list"]')
         self.cartbadge = page.locator('[data-test="shopping-cart-badge"]')
         self.cartIcon = page.get_by_test_id("shopping-cart-link")
         self.filter = page.locator("#product_sort_container")
